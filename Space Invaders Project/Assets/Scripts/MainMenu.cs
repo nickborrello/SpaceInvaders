@@ -7,16 +7,28 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(playGame());
     }
 
     public void PlayOriginalGame()
     {
-        SceneManager.LoadScene(2);
+        StartCoroutine(playOriginalGame());
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    IEnumerator playGame()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(5);
+    }
+
+    IEnumerator playOriginalGame()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(6);
     }
 }
