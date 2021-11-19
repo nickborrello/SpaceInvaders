@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public Vector3 direction = Vector3.up;
     public System.Action<Projectile> destroyed;
     public new BoxCollider2D collider { get; private set; }
+    public GameObject explosion;
 
     private void Awake()
     {
@@ -28,9 +29,8 @@ public class Projectile : MonoBehaviour
     private void CheckCollision(Collider2D other)
     {
         Bunker bunker = other.gameObject.GetComponent<Bunker>();
-
         if (bunker == null || bunker.CheckCollision(this.collider, this.transform.position)) {
-            Destroy(this.gameObject);
+            Explode();
         }
     }
 
@@ -42,6 +42,12 @@ public class Projectile : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         CheckCollision(other);
+    }
+
+    void Explode() {
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+
     }
 
 }
