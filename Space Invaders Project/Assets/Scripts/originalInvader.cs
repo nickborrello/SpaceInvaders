@@ -39,5 +39,4 @@ public class originalInvader : MonoBehaviour
             this.killed?.Invoke(this);
         }
     }
-
 }

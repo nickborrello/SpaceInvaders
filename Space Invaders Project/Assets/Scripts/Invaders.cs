@@ -129,7 +129,6 @@ public class Invaders : MonoBehaviour
     private void OnInvaderKilled(originalInvader invader)
     {
         invader.gameObject.SetActive(false);
-
         this.AmountKilled++;
         this.killed(invader);
         boom.Play();

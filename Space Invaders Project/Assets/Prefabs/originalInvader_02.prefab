@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8087897171543711283, guid: 21f865cb325c39a42ae05fa853c24160, type: 3}
       propertyPath: m_Name
-      value: Invader_02
+      value: originalInvader_02
       objectReference: {fileID: 0}
     - target: {fileID: 8087897171543711295, guid: 21f865cb325c39a42ae05fa853c24160, type: 3}
       propertyPath: m_Size.x
@@ -95,5 +95,7 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.375
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6262444780072322559, guid: 21f865cb325c39a42ae05fa853c24160, type: 3}
+    - {fileID: 4176131634131471142, guid: 21f865cb325c39a42ae05fa853c24160, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 21f865cb325c39a42ae05fa853c24160, type: 3}

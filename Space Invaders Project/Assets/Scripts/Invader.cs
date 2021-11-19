@@ -9,6 +9,7 @@ public class Invader : MonoBehaviour
     public int animationFrame { get; private set; }
     public int score = 10;
     public System.Action<Invader> killed;
+    public ParticleSystem explosion;
 
     private void Awake()
     {
@@ -33,11 +34,13 @@ public class Invader : MonoBehaviour
         this.spriteRenderer.sprite = this.animationSprites[this.animationFrame];
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Laser")) {
             this.killed?.Invoke(this);
         }
     }
+
+    
 
 }
