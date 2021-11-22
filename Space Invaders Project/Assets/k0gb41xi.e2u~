@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Sounds : MonoBehaviour
+{
+    AudioSource boom;
+    AudioSource pew;
+
+    public void playBoom()
+    {
+        boom.Play();
+    }
+
+    public void playPew();
+}

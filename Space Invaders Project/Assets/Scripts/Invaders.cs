@@ -3,12 +3,12 @@ using UnityEngine;
 public class Invaders : MonoBehaviour
 {
     [Header("Invaders")]
-    public originalInvader[] prefabs = new originalInvader[5];
+    public Invader[] prefabs = new Invader[5];
     public AnimationCurve speed = new AnimationCurve();
     public Vector3 direction { get; private set; } = Vector3.right;
     public Vector3 initialPosition { get; private set; }
-    public System.Action<originalInvader> killed;
-    public AudioSource boom;
+    public System.Action<Invader> killed;
+    public AudioSource pew;
 
     public int AmountKilled { get; private set; }
     public int AmountAlive => this.TotalAmount - this.AmountKilled;
@@ -39,7 +39,7 @@ public class Invaders : MonoBehaviour
             for (int j = 0; j < this.columns; j++)
             {
                 // Create an invader and parent it to this transform
-                originalInvader invader = Instantiate(this.prefabs[i], this.transform);
+                Invader invader = Instantiate(this.prefabs[i], this.transform);
                 invader.killed += OnInvaderKilled;
 
                 // Calculate and set the position of the invader in the row
@@ -76,6 +76,7 @@ public class Invaders : MonoBehaviour
             if (Random.value < (1.0f / (float)amountAlive))
             {
                 Instantiate(this.missilePrefab, invader.position, Quaternion.identity);
+                pew.Play();
                 break;
             }
         }
@@ -126,12 +127,11 @@ public class Invaders : MonoBehaviour
         this.transform.position = position;
     }
 
-    private void OnInvaderKilled(originalInvader invader)
+    private void OnInvaderKilled(Invader invader)
     {
         invader.gameObject.SetActive(false);
         this.AmountKilled++;
         this.killed(invader);
-        boom.Play();
     }
 
     public void ResetInvaders()

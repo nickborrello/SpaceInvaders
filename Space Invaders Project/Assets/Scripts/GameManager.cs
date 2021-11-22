@@ -21,6 +21,7 @@ public sealed class GameManager : MonoBehaviour
         this.invaders = FindObjectOfType<Invaders>();
         this.mysteryShip = FindObjectOfType<MysteryShip>();
         this.bunkers = FindObjectsOfType<Bunker>();
+        PauseMenu.GameIsPaused = false;
     }
 
     private void Start()
@@ -96,7 +97,7 @@ public sealed class GameManager : MonoBehaviour
         }
     }
 
-    private void OnInvaderKilled(originalInvader invader)
+    private void OnInvaderKilled(Invader invader)
     {
         SetScore(this.score + invader.score);
 

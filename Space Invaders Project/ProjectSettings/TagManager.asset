@@ -9,15 +9,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Background
+  - 
   - Water
   - UI
   - Player
   - Invader
   - Laser
   - Missile
-  - 
-  - 
+  - Text
+  - Background
   - 
   - 
   - 

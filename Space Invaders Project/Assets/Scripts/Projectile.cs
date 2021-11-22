@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public System.Action<Projectile> destroyed;
     public new BoxCollider2D collider { get; private set; }
     public GameObject explosion;
+    public AudioClip boom;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class Projectile : MonoBehaviour
     private void CheckCollision(Collider2D other)
     {
         Bunker bunker = other.gameObject.GetComponent<Bunker>();
+
         if (bunker == null || bunker.CheckCollision(this.collider, this.transform.position)) {
             Explode();
         }
@@ -45,9 +47,9 @@ public class Projectile : MonoBehaviour
     }
 
     void Explode() {
-            Instantiate(explosion, transform.position, transform.rotation);
-            Destroy(this.gameObject);
-
+        Instantiate(explosion, transform.position, transform.rotation);
+        Destroy(this.gameObject);
+        AudioSource.PlayClipAtPoint(boom, gameObject.transform.position, 1.0f);
     }
 
 }
