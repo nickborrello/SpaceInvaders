@@ -127,7 +127,7 @@ MonoBehaviour:
   speed: 20
   direction: {x: 0, y: -1, z: 0}
   explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
-  boom: {fileID: 8300000, guid: b68b89c44096a8a408fde567bbd0b2c9, type: 3}
+  gameManager: {fileID: 6063975864388365935, guid: 3b3c68d266585ba4c810ec615d34bf02, type: 3}
 --- !u!50 &-7282455041310962274
 Rigidbody2D:
   serializedVersion: 4
