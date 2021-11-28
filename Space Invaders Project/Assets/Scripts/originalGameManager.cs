@@ -68,7 +68,7 @@ public sealed class originalGameManager : MonoBehaviour
 
     private void GameOver()
     {
-       SceneManager.LoadScene(4);
+       SceneManager.LoadScene("Game Over Original");
     }
 
     private void SetScore(int score)

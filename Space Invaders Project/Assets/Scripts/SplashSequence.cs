@@ -27,21 +27,21 @@ public class SplashSequence : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         SceneNum = 2;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("WPI");
     }
 
     IEnumerator ToSplashThree()
     {
         yield return new WaitForSeconds(2);
         SceneNum = 3;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Zigurous");
     }
 
     IEnumerator ToMainMenu()
     {
         yield return new WaitForSeconds(2);
         SceneNum = 4;
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("Main Menu");
     }
 
 }

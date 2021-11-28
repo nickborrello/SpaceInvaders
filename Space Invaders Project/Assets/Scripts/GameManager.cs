@@ -69,7 +69,7 @@ public sealed class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-       SceneManager.LoadScene(3);
+       SceneManager.LoadScene("Game Over Current");
     }
 
     private void SetScore(int score)

@@ -19,6 +19,6 @@ public class TitlePlayer : MonoBehaviour
     {
         startSound.Play();
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Unity");
     }
 }

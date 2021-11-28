@@ -23,13 +23,13 @@ public class MainMenu : MonoBehaviour
     IEnumerator playGame()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("Current Build");
     }
 
     IEnumerator playOriginalGame()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene("Original Build");
     }
 
 }
