@@ -12,7 +12,7 @@ public sealed class GameManager : MonoBehaviour
     public Text scoreText;
     public Text livesText;
 
-    public int score { get; private set; }
+    public static int score { get; private set; }
     public int lives { get; private set; }
 
     private void Awake()
@@ -72,10 +72,10 @@ public sealed class GameManager : MonoBehaviour
        SceneManager.LoadScene("Game Over Current");
     }
 
-    private void SetScore(int score)
+    private void SetScore(int currentScore)
     {
-        this.score = score;
-        this.scoreText.text = this.score.ToString().PadLeft(4, '0');
+        score = currentScore;
+        this.scoreText.text = score.ToString().PadLeft(4, '0');
     }
 
     private void SetLives(int lives)
@@ -99,7 +99,7 @@ public sealed class GameManager : MonoBehaviour
 
     private void OnInvaderKilled(Invader invader)
     {
-        SetScore(this.score + invader.score);
+        SetScore(score + invader.score);
 
         if (this.invaders.AmountKilled == this.invaders.TotalAmount) {
             NewRound();
@@ -108,7 +108,7 @@ public sealed class GameManager : MonoBehaviour
 
     private void OnMysteryShipKilled(MysteryShip mysteryShip)
     {
-        SetScore(this.score + mysteryShip.score);
+        SetScore(score + mysteryShip.score);
     }
 
 }
