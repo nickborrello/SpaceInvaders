@@ -8,6 +8,7 @@ public class Bunker : MonoBehaviour
     public Texture2D originalTexture { get; private set; }
     public SpriteRenderer spriteRenderer { get; private set; }
     public new BoxCollider2D collider { get; private set; }
+    public CameraShake cameraShake;
 
     private void Awake()
     {
@@ -93,6 +94,7 @@ public class Bunker : MonoBehaviour
                 Color pixel = texture.GetPixel(px, py);
                 pixel.a *= this.splat.GetPixel(x, y).a;
                 texture.SetPixel(px, py, pixel);
+                StartCoroutine(cameraShake.Shake(.15f, .2f));
                 px++;
             }
 

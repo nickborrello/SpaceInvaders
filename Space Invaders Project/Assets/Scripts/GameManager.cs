@@ -11,6 +11,7 @@ public sealed class GameManager : MonoBehaviour
 
     public Text scoreText;
     public Text livesText;
+    public CameraShake cameraShake;
 
     public static int score { get; private set; }
     public int lives { get; private set; }
@@ -87,6 +88,7 @@ public sealed class GameManager : MonoBehaviour
     private void OnPlayerKilled()
     {
         SetLives(this.lives - 1);
+        StartCoroutine(cameraShake.Shake(.15f, .2f));
 
         this.player.gameObject.SetActive(false);
 
@@ -100,6 +102,7 @@ public sealed class GameManager : MonoBehaviour
     private void OnInvaderKilled(Invader invader)
     {
         SetScore(score + invader.score);
+        StartCoroutine(cameraShake.Shake(.15f, .2f));
 
         if (this.invaders.AmountKilled == this.invaders.TotalAmount) {
             NewRound();
@@ -109,6 +112,7 @@ public sealed class GameManager : MonoBehaviour
     private void OnMysteryShipKilled(MysteryShip mysteryShip)
     {
         SetScore(score + mysteryShip.score);
+        StartCoroutine(cameraShake.Shake(.15f, .2f));
     }
 
 }
