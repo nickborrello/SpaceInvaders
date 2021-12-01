@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public void PlayLevelOne()
     {
-        StartCoroutine(playGame());
+        StartCoroutine(playLevelOne());
+    }
+
+    public void PlayLevelTwo()
+    {
+        StartCoroutine(playLevelTwo());
     }
 
     public void PlayOriginalGame()
@@ -20,10 +25,16 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    IEnumerator playGame()
+    IEnumerator playLevelOne()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Current Build");
+        SceneManager.LoadScene("Level 1");
+    }
+
+    IEnumerator playLevelTwo()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Level 2");
     }
 
     IEnumerator playOriginalGame()
