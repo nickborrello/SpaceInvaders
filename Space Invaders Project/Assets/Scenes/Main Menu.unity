@@ -3008,7 +3008,12 @@ MonoBehaviour:
 
     screen shake
 
-    toggle fullscreen setting'
+    toggle fullscreen setting
+
+    more
+    levels w/ different difficulty
+
+    level select screen'
 --- !u!222 &904038142
 CanvasRenderer:
   m_ObjectHideFlags: 0
