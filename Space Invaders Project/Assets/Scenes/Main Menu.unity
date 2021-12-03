@@ -3013,7 +3013,9 @@ MonoBehaviour:
     more
     levels w/ different difficulty
 
-    level select screen'
+    level select screen
+
+    high score system'
 --- !u!222 &904038142
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3625,17 +3627,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 6533320545958267595, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 048e3f61b6de007439b544ab7ccff3c3, type: 3}
+    - target: {fileID: 6533320545958267595, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6533320545958267596, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6533320545958267596, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.1
+      value: 0.46142578
       objectReference: {fileID: 0}
     - target: {fileID: 6533320545958267596, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.29296875
       objectReference: {fileID: 0}
     - target: {fileID: 6533320545958267596, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3775,7 +3785,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 9557f9fd9a05a2a468b9cac0988d8de2, type: 2}
   m_audioClip: {fileID: 8300000, guid: a0987877890d9ad49b246635e5224c6e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

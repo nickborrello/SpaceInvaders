@@ -40,7 +40,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator playOriginalGame()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Original Build");
+        SceneManager.LoadScene("Original");
     }
 
 }

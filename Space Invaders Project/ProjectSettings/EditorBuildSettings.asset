@@ -12,13 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/TItle Screen.unity
     guid: 66f35b8ec7aa882408f07ece5da0a193
   - enabled: 1
-    path: Assets/Scenes/Unity.unity
+    path: Assets/Scenes/Splash/Unity.unity
     guid: 00cbcaf414df1524f842f91906513682
   - enabled: 1
-    path: Assets/Scenes/WPI.unity
+    path: Assets/Scenes/Splash/WPI.unity
     guid: fd62caf3d1a068b4cb48100f1604cead
   - enabled: 1
-    path: Assets/Scenes/Zigurous.unity
+    path: Assets/Scenes/Splash/Zigurous.unity
     guid: 3467eee4ccd0d044c9108dd70f931af9
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
@@ -30,12 +30,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 2.unity
     guid: 4a7af8d03fe47c9419dce0e3d2a571b1
   - enabled: 1
-    path: Assets/Scenes/Original Build.unity
+    path: Assets/Scenes/Original.unity
     guid: 738c1bed8dfed9c43a6536c12c4c302c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game Over Current.unity
     guid: 721ebabf13ed4d44ab6d76a0aee99e59
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game Over Original.unity
     guid: dbfc61c9bba62b54ab696fc11d340371
   m_configObjects: {}

@@ -9,15 +9,26 @@ public sealed class GameManager : MonoBehaviour
     private MysteryShip mysteryShip;
     private Bunker[] bunkers;
 
+    public int level;
+
     public Text scoreText;
     public Text livesText;
-    public CameraShake cameraShake;
 
+    public Text finalScore;
+    public Text highText;
+
+    int highScore;
     public static int score { get; private set; }
+    int savedHighScore;
+
+    public CameraShake cameraShake;
+    public GameObject gameOverUI;
+
     public int lives { get; private set; }
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         this.player = FindObjectOfType<Player>();
         this.invaders = FindObjectOfType<Invaders>();
         this.mysteryShip = FindObjectOfType<MysteryShip>();
@@ -27,6 +38,16 @@ public sealed class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if(level == 1)
+        {
+            savedHighScore = PlayerPrefs.GetInt("HighScore1");
+
+        }
+        if (level == 2)
+        {
+            savedHighScore = PlayerPrefs.GetInt("HighScore2");
+
+        }
         this.player.killed += OnPlayerKilled;
         this.mysteryShip.killed += OnMysteryShipKilled;
         this.invaders.killed += OnInvaderKilled;
@@ -36,15 +57,33 @@ public sealed class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (this.lives <= 0 && Input.GetKeyDown(KeyCode.Return)) {
+        if (this.lives <= 0) {
             NewGame();
+        }
+
+        if (score > highScore)
+        {
+            highScore = score;
+        }
+
+        if (highScore > savedHighScore)
+        {
+            savedHighScore = highScore;
+            if (level == 1)
+            {
+                PlayerPrefs.SetInt("HighScore1", highScore);
+            }
+            if (level == 2)
+            {
+                PlayerPrefs.SetInt("HighScore2", highScore);
+            }
         }
     }
 
     private void NewGame()
     {
         SetScore(0);
-        SetLives(3);
+        SetLives(1);
         NewRound();
     }
 
@@ -70,7 +109,11 @@ public sealed class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-       SceneManager.LoadScene("Game Over Current");
+        Time.timeScale = 0f;
+        this.highText.text = "- High Score: " + savedHighScore.ToString() + " -";
+        this.finalScore.text = "Your Score: " + score.ToString();
+        gameOverUI.SetActive(true);
+        savedHighScore = highScore;
     }
 
     private void SetScore(int currentScore)

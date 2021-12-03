@@ -235,17 +235,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 6533320545958267595, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1a66969665b53d447bf2bd675b3ad9da, type: 3}
+    - target: {fileID: 6533320545958267595, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6533320545958267596, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6533320545958267596, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.1
+      value: 0.46142578
       objectReference: {fileID: 0}
     - target: {fileID: 6533320545958267596, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.29296875
       objectReference: {fileID: 0}
     - target: {fileID: 6533320545958267596, guid: bc5d5a1437215c54d93fb9831064e5da, type: 3}
       propertyPath: m_LocalPosition.x

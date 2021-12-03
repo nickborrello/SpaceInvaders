@@ -8,6 +8,7 @@ public sealed class originalGameManager : MonoBehaviour
     private originalInvaders invaders;
     private originalMysteryShip mysteryShip;
     private originalBunker[] bunkers;
+    public GameObject gameOverUI;
 
     public Text scoreText;
     public Text livesText;
@@ -17,10 +18,12 @@ public sealed class originalGameManager : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         this.player = FindObjectOfType<originalPlayer>();
         this.invaders = FindObjectOfType<originalInvaders>();
         this.mysteryShip = FindObjectOfType<originalMysteryShip>();
         this.bunkers = FindObjectsOfType<originalBunker>();
+        PauseMenu.GameIsPaused = false;
     }
 
     private void Start()
@@ -34,7 +37,7 @@ public sealed class originalGameManager : MonoBehaviour
 
     private void Update()
     {
-        if (this.lives <= 0 && Input.GetKeyDown(KeyCode.Return)) {
+        if (this.lives <= 0) {
             NewGame();
         }
     }
@@ -68,7 +71,8 @@ public sealed class originalGameManager : MonoBehaviour
 
     private void GameOver()
     {
-       SceneManager.LoadScene("Game Over Original");
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     private void SetScore(int score)

@@ -5,20 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public void PlayGameCurrent()
+
+    public GameObject gameOverUI;
+    public int level;
+
+    // Update is called once per frame
+
+    public void Retry()
     {
-        SceneManager.LoadScene("Current Build");
+        if (level == 0)
+        {
+            SceneManager.LoadScene("Original");
+        }
+        if (level == 1)
+        {
+            SceneManager.LoadScene("Level 1");
+        }
+        if (level == 2)
+        {
+            SceneManager.LoadScene("Level 2");
+        }
     }
 
-    public void PlayGameOriginal()
-    {
-        SceneManager.LoadScene("Original Build");
-    }
-
-    public void ReturnToMenu()
+    public void returnMenu()
     {
         SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1f;
+        level = 0;
     }
 
     public void QuitGame()
