@@ -2,11 +2,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5.0f;
+    float speed;
+    float speedMultiplyer;
     public Projectile laserPrefab;
     public System.Action killed;
     public bool laserActive { get; private set; }
     public AudioSource pew;
+    public GameObject shield;
+
+    private void Start()
+    {
+        speedMultiplyer = 1 + PlayerPrefs.GetFloat("Player Speed");
+        speed = (5.0f * speedMultiplyer);
+    }
 
     private void Update()
     {

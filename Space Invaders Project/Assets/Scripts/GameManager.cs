@@ -38,7 +38,9 @@ public sealed class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if(level == 1)
+        lives = 1 + PlayerPrefs.GetInt("Starting Lives");
+
+        if (level == 1)
         {
             savedHighScore = PlayerPrefs.GetInt("HighScore1");
 
@@ -83,7 +85,7 @@ public sealed class GameManager : MonoBehaviour
     private void NewGame()
     {
         SetScore(0);
-        SetLives(1);
+        SetLives(lives);
         NewRound();
     }
 
@@ -114,6 +116,7 @@ public sealed class GameManager : MonoBehaviour
         this.finalScore.text = "Your Score: " + score.ToString();
         gameOverUI.SetActive(true);
         savedHighScore = highScore;
+        PlayerPrefs.SetInt("Points", PlayerPrefs.GetInt("Points") + score);
     }
 
     private void SetScore(int currentScore)
