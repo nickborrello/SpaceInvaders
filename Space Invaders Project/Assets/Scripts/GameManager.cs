@@ -13,6 +13,7 @@ public sealed class GameManager : MonoBehaviour
 
     public Text scoreText;
     public Text livesText;
+    public Text shieldsText;
 
     public Text finalScore;
     public Text highText;
@@ -39,6 +40,8 @@ public sealed class GameManager : MonoBehaviour
     private void Start()
     {
         lives = 1 + PlayerPrefs.GetInt("Starting Lives");
+        this.player.shieldsInt = 1 + PlayerPrefs.GetInt("Starting Shields");
+
 
         if (level == 1)
         {
@@ -59,6 +62,8 @@ public sealed class GameManager : MonoBehaviour
 
     private void Update()
     {
+        this.shieldsText.text = this.player.shieldsInt.ToString() + "x";
+
         if (this.lives <= 0) {
             NewGame();
         }
@@ -159,6 +164,7 @@ public sealed class GameManager : MonoBehaviour
     {
         SetScore(score + mysteryShip.score);
         StartCoroutine(cameraShake.Shake(.15f, .2f));
+        this.player.shieldsInt++;
     }
 
 }

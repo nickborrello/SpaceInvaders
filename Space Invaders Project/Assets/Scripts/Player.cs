@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
     public System.Action killed;
     public bool laserActive { get; private set; }
     public AudioSource pew;
+    public AudioSource shieldActivate;
     public GameObject shield;
+    public int shieldsInt;
 
     private void Start()
     {
@@ -37,7 +39,15 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
             Shoot();
         }
+
+        if (Input.GetKeyDown(KeyCode.E) && shieldsInt > 0 && !shield.activeSelf)
+        {
+            shield.SetActive(true);
+            shieldActivate.Play();
+            shieldsInt--;
+        }
     }
+
 
     private void Shoot()
     {
