@@ -21,7 +21,7 @@ public class Invaders : MonoBehaviour
 
     [Header("Missiles")]
     public Projectile missilePrefab;
-    public float missileSpawnRate = 1.0f;
+    public float missileSpawnRate;
 
     private void Awake()
     {
@@ -73,7 +73,7 @@ public class Invaders : MonoBehaviour
 
             // Random chance to spawn a missile based upon how many invaders are
             // alive (the more invaders alive the lower the chance)
-            if (Random.value < (1.0f / (float)amountAlive))
+            if (Random.value < (missileSpawnRate / (float)amountAlive))
             {
                 Instantiate(this.missilePrefab, invader.position, Quaternion.identity);
                 pew.Play();

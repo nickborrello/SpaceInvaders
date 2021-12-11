@@ -15,6 +15,11 @@ public class PointShop : MonoBehaviour
     public GameObject spt;
     public GameObject lpt;
     public GameObject shpt;
+    public GameObject cantAffordL;
+    public GameObject cantAffordSh;
+    public GameObject cantAffordSp;
+
+
 
 
     int points;
@@ -48,7 +53,7 @@ public class PointShop : MonoBehaviour
 
         this.pointsText.text = points.ToString() + " Test Points";
         this.livesText.text = startingLives.ToString() + " lives";
-        this.speedText.text = playerSpeed.ToString() + "x Speed";
+        this.speedText.text = playerSpeed.ToString("0.0") + "x Speed";
         this.shieldText.text = startingShields.ToString() + " shields";
 
 
@@ -58,42 +63,67 @@ public class PointShop : MonoBehaviour
         this.shieldPriceText.text = shieldsPrice.ToString() + " Points";
 
 
-        if (points < livesPrice | (PlayerPrefs.GetInt("Starting Lives") >= 4))
+        if (PlayerPrefs.GetInt("Starting Lives") >= 4)
         {
             livesButton.SetActive(false);
             MaxLives.SetActive(true);
             lpt.SetActive(false);
+            cantAffordL.SetActive(false);
+        }
+        else if (points < livesPrice)
+        {
+            livesButton.SetActive(false);
+            cantAffordL.SetActive(true);
         }
         else
         {
             livesButton.SetActive(true);
             MaxLives.SetActive(false);
             lpt.SetActive(true);
+            cantAffordL.SetActive(false);
         }
-        if (points < speedPrice | (PlayerPrefs.GetFloat("Player Speed") >= 1))
-        {
-            speedButton.SetActive(false);
-            MaxSpeed.SetActive(true);
-            spt.SetActive(false);
-        }
-        else
-        {
-            speedButton.SetActive(true);
-            MaxSpeed.SetActive(false);
-            spt.SetActive(true);
-        }
-        if (points < shieldsPrice | (PlayerPrefs.GetInt("Starting Shields") >= 2))
+
+        if (PlayerPrefs.GetInt("Starting Shields") >= 2)
         {
             shieldsButton.SetActive(false);
             MaxShields.SetActive(true);
             shpt.SetActive(false);
+            cantAffordSh.SetActive(false);
+        }
+        else if (points < shieldsPrice)
+        {
+            shieldsButton.SetActive(false);
+            cantAffordSh.SetActive(true);
         }
         else
         {
             shieldsButton.SetActive(true);
             MaxShields.SetActive(false);
             shpt.SetActive(true);
+            cantAffordSh.SetActive(false);
+            
         }
+
+        if (PlayerPrefs.GetFloat("Player Speed") >= 1)
+        {
+            speedButton.SetActive(false);
+            MaxSpeed.SetActive(true);
+            spt.SetActive(false);
+            cantAffordSp.SetActive(false);
+        }
+        else if (points < speedPrice)
+        {
+            speedButton.SetActive(false);
+            cantAffordSp.SetActive(true);
+        }
+        else
+        {
+            speedButton.SetActive(true);
+            MaxSpeed.SetActive(false);
+            spt.SetActive(true);
+            cantAffordSp.SetActive(false);
+        }
+
 
     }
 
@@ -126,5 +156,10 @@ public class PointShop : MonoBehaviour
         PlayerPrefs.SetInt("Shields Price", 0);
         PlayerPrefs.SetFloat("Player Speed", 0);
         PlayerPrefs.SetInt("Speed Price", 0);
+        PlayerPrefs.SetInt("Points", 0);
+    }
+
+    public void givePoints() {
+        PlayerPrefs.SetInt("Points", PlayerPrefs.GetInt("Points") + 10000);
     }
 }

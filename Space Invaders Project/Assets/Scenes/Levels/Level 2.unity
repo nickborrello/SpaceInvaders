@@ -1457,7 +1457,7 @@ MonoBehaviour:
   rows: 5
   columns: 11
   missilePrefab: {fileID: 756448138433049719, guid: 48e06088b7e195f40898a828bd389ec3, type: 3}
-  missileSpawnRate: 1
+  missileSpawnRate: 0.5
 --- !u!1 &1001845995
 GameObject:
   m_ObjectHideFlags: 0

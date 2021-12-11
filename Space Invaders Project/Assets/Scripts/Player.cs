@@ -29,8 +29,8 @@ public class Player : MonoBehaviour
             position.x += this.speed * Time.deltaTime;
         }
 
-        Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
-        Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
+        Vector3 leftEdge = new Vector3(-15, 0, 0);
+        Vector3 rightEdge = new Vector3(15, 0, 0);
 
         // Clamp the position of the character so they do not go out of bounds
         position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
