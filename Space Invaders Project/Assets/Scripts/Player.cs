@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public AudioSource shieldActivate;
     public GameObject shield;
     public int shieldsInt;
+    public Transform firePoint;
 
     private void Start()
     {
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        faceMouse();
+
         Vector3 position = this.transform.position;
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
@@ -57,10 +60,24 @@ public class Player : MonoBehaviour
         {
             this.laserActive = true;
 
-            Projectile laser = Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
+
+            Projectile laser = Instantiate(this.laserPrefab, this.transform.position, firePoint.rotation);
             laser.destroyed += OnLaserDestroyed;
             pew.Play();
         }
+    }
+
+    private void faceMouse()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        Vector2 direction = new Vector2(
+            mousePosition.x - transform.position.x,
+            mousePosition.y - transform.position.y
+            );
+
+        transform.up = direction;
     }
 
     private void OnLaserDestroyed(Projectile laser)

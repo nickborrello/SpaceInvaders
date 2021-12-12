@@ -3,8 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Projectile : MonoBehaviour
 {
-    public float speed = 20.0f;
-    public Vector3 direction = Vector3.up;
+    public float speed;
+    Vector3 direction;
     public System.Action<Projectile> destroyed;
     public new BoxCollider2D collider { get; private set; }
     public GameObject explosion;
@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
+        direction = transform.up;
         this.transform.position += this.direction * this.speed * Time.deltaTime;
     }
 

@@ -9,6 +9,7 @@ public class Invaders : MonoBehaviour
     public Vector3 initialPosition { get; private set; }
     public System.Action<Invader> killed;
     public AudioSource pew;
+    public Transform firePoint;
 
     public int AmountKilled { get; private set; }
     public int AmountAlive => this.TotalAmount - this.AmountKilled;
@@ -75,7 +76,7 @@ public class Invaders : MonoBehaviour
             // alive (the more invaders alive the lower the chance)
             if (Random.value < (missileSpawnRate / (float)amountAlive))
             {
-                Instantiate(this.missilePrefab, invader.position, Quaternion.identity);
+                Instantiate(this.missilePrefab, invader.position, firePoint.rotation);
                 pew.Play();
                 break;
             }
